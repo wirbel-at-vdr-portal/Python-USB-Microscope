@@ -3,6 +3,12 @@ This is a Python script for an DNT USB microscope camera. This micrsocope was so
 I'm using Python-3.12.0 with OpenCV on Windows. It **should** work with other similar cameras and Linux as well.
 This program, and associated information is Open Source (see Licence).
 
+# Screenshot
+The Image below is Screenshot, taken with **CTRL+s** from the current video stream.
+It shows three 0603 resistors. As a reference, each resistor is 1.60mm x 0.80 mm.
+
+If you don't want the menu in the screenshot, turn it off before using key **m**.
+
 ![Screenshot](doc/Screenshot.png)
 
 ## Features
