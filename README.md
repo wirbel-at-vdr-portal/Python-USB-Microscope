@@ -1,13 +1,16 @@
 # About
-This is a Python script for an DNT USB microscope camera. This micrsocope was sold a an 5MPix one, but delivers only a 640x480 25fps stream.
+This is a Python script for an DNT USB microscope camera. This microscope was sold a 5 MPix years ago, but delivers only a 640x480 25fps stream. I didn't like the feeling of the original software, so i did my own.
+
 I'm using Python-3.12.0 with OpenCV on Windows. It **should** work with other similar cameras and Linux as well.
 This program, and associated information is Open Source (see Licence).
 
 # Screenshot
-The Image below is Screenshot, taken with **CTRL+s** from the current video stream.
+The Image below is a screenshot, taken with **CTRL+s** from the current video stream.
 It shows three 0603 resistors. As a reference, each resistor is 1.60mm x 0.80 mm.
 
 If you don't want the menu in the screenshot, turn it off before using key **m**.
+
+There's nearly no delay between the camera and the video, this improves the usability a lot. And, if you ever used such device, you will love the rotation feature just entering an **r**.
 
 ![Screenshot](doc/Screenshot.png)
 
@@ -44,3 +47,10 @@ If needed, change the line
 - **r** - rotate clockwise in 90deg steps
 - **m** - toggle menu
 - **CTRL + s** - save snapshot as png
+
+## A last comment ##
+This a fast and quick one-day shot. I'm not going to spend too much time for this.
+But, if you have some really good idea for improvement, let me know..
+
+Have phun,
+Winfried
