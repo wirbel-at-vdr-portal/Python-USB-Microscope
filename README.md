@@ -38,6 +38,16 @@ If needed, change the line
 
 *dev = 0*
 
+## Compiling the program into an exe (Windows)
+
+Open a command window, change to the directory, where USB-microscope.py is located and run
+
+**pyinstaller -F USB-microscope.py**
+
+If the command is not yet installed, you may install need to install it first:
+
+**py -m pip install pyinstaller**
+
 ## Using the program
 - **ESC** or **q** - end program 
 - **+** or **-** - change window size and scale up/down
