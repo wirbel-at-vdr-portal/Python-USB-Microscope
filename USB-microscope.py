@@ -28,6 +28,8 @@ beta = 0.0                # offset or 'brightness', +/- 100 in steps of ten
 rad = 0                   # image smoothing filter: blur radius
 osd = True                # show menu/osd in upper left                
 fullscreen = False        # fullscreen yes/no
+inverted = False          # inverted colors
+bgr = False               # display false colors
 rotate = 0                # image not rotated, 0..3 clockwise
 raw_data_info = True      # show infos about captured data
 
@@ -73,9 +75,15 @@ while(cap.isOpened()):
       if rad > 0:
          frame = cv2.blur(frame,(rad,rad))
 
+      if inverted:
+         frame = cv2.bitwise_not(frame)
+
+      if bgr:
+         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+
       if osd:
          # display black background box
-         cv2.rectangle(frame, (0,0), (160,120), (0,0,0), -1)
+         cv2.rectangle(frame, (0,0), (160,160), (0,0,0), -1)
          p = 14
 
          cv2.putText(frame,'Scale (+/-): '+str(scale)    , (10, p), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 255, 255), 1, cv2.LINE_AA)
@@ -91,6 +99,12 @@ while(cap.isOpened()):
          p += 14
 
          cv2.putText(frame,'Rotate (r): '+str(rotate*90) , (10, p), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 255, 255), 1, cv2.LINE_AA)
+         p += 14
+
+         cv2.putText(frame,'Invert (i): '+str(inverted)  , (10, p), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 255, 255), 1, cv2.LINE_AA)
+         p += 14
+
+         cv2.putText(frame,'false color (e): '+str(bgr)  , (10, p), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 255, 255), 1, cv2.LINE_AA)
          p += 14
 
          cv2.putText(frame,'Menu (m): '+str(osd)         , (10, p), cv2.FONT_HERSHEY_SIMPLEX, 0.4,(0, 255, 255), 1, cv2.LINE_AA)
@@ -144,6 +158,10 @@ while(cap.isOpened()):
             alpha = int(10.0 * alpha + 0.5) / 10.0
             if alpha > 3.01:
                alpha = 0
+         case 101: # 'i', toggle flase colors
+            bgr = not bgr
+         case 105: # 'i', toggle inverted image
+            inverted = not inverted
          case 114: # 'r', rotate clockwise
             rotate += 1
             if rotate > 3:
